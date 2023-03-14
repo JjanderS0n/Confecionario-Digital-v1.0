@@ -1,0 +1,74 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class Confessionario {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+
+        String usuario = "";
+        String senha = "";
+
+        // Cadastro
+        System.out.println("Bem-vindo(a) ao confessionário virtual.");
+        System.out.println("Por favor, cadastre-se:");
+
+        System.out.print("Usuário: ");
+        usuario = scanner.nextLine();
+
+        System.out.print("Senha: ");
+        senha = scanner.nextLine();
+
+        System.out.println("Cadastro realizado com sucesso!\n");
+
+        // Login
+        System.out.println("Por favor, faça login:");
+
+        System.out.print("Usuário: ");
+        String inputUsuario = scanner.nextLine();
+
+        System.out.print("Senha: ");
+        String inputSenha = scanner.nextLine();
+
+        if (inputUsuario.equals(usuario) && inputSenha.equals(senha)) {
+            System.out.println("Login realizado com sucesso!\n");
+
+            // Confissão
+            System.out.println("Qual a sua dúvida ou problema?");
+
+            while (true) {
+                System.out.print("Confesse aqui: ");
+                String confissao = scanner.nextLine();
+
+                if (confissao.equalsIgnoreCase("sair")) {
+                    break;
+                }
+
+                String[] respostas = {
+                        "Deus sempre nos oferece uma saída. Busque-O e Ele lhe mostrará o caminho.",
+                        "Tudo que acontece em nossas vidas tem um propósito maior. Confie em Deus e siga em frente.",
+                        "Ame a si mesmo(a) e ao próximo como a si mesmo(a). O amor é a resposta para todos os problemas.",
+                        "Confie em Deus e Ele lhe dará a força que você precisa para superar qualquer dificuldade.",
+                        "Deus nos deu o livre-arbítrio para escolhermos o nosso caminho. Escolha sempre o caminho da luz.",
+                        "Não se preocupe com o que os outros pensam de você. O que importa é o que Deus pensa de você.",
+                        "Se você está passando por uma tempestade, lembre-se que depois dela sempre vem a bonança.",
+                        "O perdão é a chave para a felicidade. Perdoe a si mesmo(a) e aos outros.",
+                        "Lembre-se sempre que Deus está sempre ao seu lado, mesmo nos momentos mais difíceis.",
+                        "Não se esqueça de agradecer a Deus pelas bênçãos que Ele tem lhe dado."
+                };
+
+                int index = random.nextInt(respostas.length);
+                String resposta = respostas[index];
+
+                System.out.println(resposta);
+            }
+        } else {
+            System.out.println("Usuário ou senha incorretos. Tente novamente.");
+        }
+
+        System.out.println("Obrigado por usar o confessionário virtual. Até a próxima!");
+    }
+
+}
